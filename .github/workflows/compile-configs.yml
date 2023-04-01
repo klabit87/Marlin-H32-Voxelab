@@ -28,9 +28,11 @@ jobs:
         cp firmware/Configuration\ Files/Aquila\ Templates/Default-NoProbe/Configuration_adv.h firmware/Sources/Marlin/Configuration_adv.h
         cd firmware/Debug
         make all
-        mv firmware/Debug/firmware.bin firmware/Debug/$GITHUB_OUTPUT
       env:
         AQUILA_VER: ${{ matrix.chip }}
+    - name: Name file accordingly
+      run: |
+        mv firmware/Debug/firmware.bin firmware/Debug/$GITHUB_OUTPUT
     - name: Upload to Release
       uses: softprops/action-gh-release@v1
       with:
