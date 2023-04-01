@@ -26,20 +26,32 @@ jobs:
         make all
       env:
         AQUILA_VER: ${{ matrix.chip }}
-    - name: Get release
-      id: get_release
-      uses: bruceadams/get-release@v1.3.2
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
-    - name: Upload Release Asset
-      uses: actions/upload-release-asset@v1
+      - name: Upload to Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: firmware/Debug/firmware.bin
+        name: Upload Release Asset
+        tag_name: ${{ github.run_id }}
+        body: |
+
+          
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.get_release.outputs.upload_url }}
-        asset_path: firmware/Debug/firmware.bin
-        asset_name: ${{ steps.build_configs.outputs.filename }}
-        asset_content_type: application/x-binary
+    #- name: Get release
+    #  id: get_release
+    #  uses: bruceadams/get-release@v1.3.2
+    #  env:
+    #    GITHUB_TOKEN: ${{ github.token }}
+    #- name: Upload Release Asset
+    #  uses: actions/upload-release-asset@v1
+    #  env:
+    #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #  with:
+    #    upload_url: ${{ steps.get_release.outputs.upload_url }}
+    #    asset_path: firmware/Debug/firmware.bin
+    #    asset_name: ${{ steps.build_configs.outputs.filename }}
+    #    asset_content_type: application/x-binary
+
   Build-BLTouch:
     name: Build BL-Touch Files
     runs-on: ubuntu-latest
@@ -67,20 +79,32 @@ jobs:
         AQUILA_VER: ${{ matrix.chip }}
         GRID: ${{ matrix.grid }}
         HS: ${{ matrix.highspeed }}
-    - name: Get release
-      id: get_release
-      uses: bruceadams/get-release@v1.3.2
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
-    - name: Upload Release Asset
-      uses: actions/upload-release-asset@v1
+
+      - name: Upload to Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: firmware/Debug/firmware.bin
+        name: Upload Release Asset
+        tag_name: ${{ github.run_id }}
+        body: |
+          
+          
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.get_release.outputs.upload_url }}
-        asset_path: firmware/Debug/firmware.bin
-        asset_name: ${{ steps.build_configs.outputs.filename }}
-        asset_content_type: application/x-binary
+    #- name: Get release
+    #  id: get_release
+    #  uses: bruceadams/get-release@v1.3.2
+    #  env:
+    #    GITHUB_TOKEN: ${{ github.token }}
+    #- name: Upload Release Asset
+    #  uses: actions/upload-release-asset@v1
+    #  env:
+    #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #  with:
+    #    upload_url: ${{ steps.get_release.outputs.upload_url }}
+    #    asset_path: firmware/Debug/firmware.bin
+    #    asset_name: ${{ steps.build_configs.outputs.filename }}
+    #    asset_content_type: application/x-binary
   Build-Manual-Mesh:
     name: Build Manual-Mesh Files
     runs-on: ubuntu-latest
@@ -103,20 +127,33 @@ jobs:
       env:
         AQUILA_VER: ${{ matrix.chip }}
         GRID: ${{ matrix.grid }}
-    - name: Get release
-      id: get_release
-      uses: bruceadams/get-release@v1.3.2
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
-    - name: Upload Release Asset
-      uses: actions/upload-release-asset@v1
+
+      - name: Upload to Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: firmware/Debug/firmware.bin
+        name: Upload Release Asset
+        tag_name: ${{ github.run_id }}
+        body: |
+          
+          
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.get_release.outputs.upload_url }}
-        asset_path: firmware/Debug/firmware.bin
-        asset_name: ${{ steps.build_configs.outputs.filename }}
-        asset_content_type: application/x-binary
+    #- name: Get release
+    #  id: get_release
+    #  uses: bruceadams/get-release@v1.3.2
+    #  env:
+    #    GITHUB_TOKEN: ${{ github.token }}
+    #- name: Upload Release Asset
+    #  uses: actions/upload-release-asset@v1
+    #  env:
+    #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #  with:
+    #    upload_url: ${{ steps.get_release.outputs.upload_url }}
+    #    asset_path: firmware/Debug/firmware.bin
+    #    asset_name: ${{ steps.build_configs.outputs.filename }}
+    #    asset_content_type: application/x-binary
+
   # Build-UBL-BLTouch:
   #   name: Build BL-Touch UBL Files
   #   runs-on: ubuntu-latest
@@ -144,20 +181,33 @@ jobs:
   #       AQUILA_VER: ${{ matrix.chip }}
   #       GRID: ${{ matrix.grid }}
   #       HS: ${{ matrix.highspeed }}
-  #   - name: Get release
-  #     id: get_release
-  #     uses: bruceadams/get-release@v1.3.2
-  #     env:
-  #       GITHUB_TOKEN: ${{ github.token }}
-  #   - name: Upload Release Asset
-  #     uses: actions/upload-release-asset@v1
-  #     env:
-  #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  #     with:
-  #       upload_url: ${{ steps.get_release.outputs.upload_url }}
-  #       asset_path: firmware/Debug/firmware.bin
-  #       asset_name: ${{ steps.build_configs.outputs.filename }}
-  #       asset_content_type: application/x-binary
+
+      - name: Upload to Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: firmware/Debug/firmware.bin
+        name: Upload Release Asset
+        tag_name: ${{ github.run_id }}
+        body: |
+          
+          
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    #- name: Get release
+    #  id: get_release
+    #  uses: bruceadams/get-release@v1.3.2
+    #  env:
+    #    GITHUB_TOKEN: ${{ github.token }}
+    #- name: Upload Release Asset
+    #  uses: actions/upload-release-asset@v1
+    #  env:
+    #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #  with:
+    #    upload_url: ${{ steps.get_release.outputs.upload_url }}
+    #    asset_path: firmware/Debug/firmware.bin
+    #    asset_name: ${{ steps.build_configs.outputs.filename }}
+    #    asset_content_type: application/x-binary
   Build-UBL-NoProbe:
     name: Build NoProbe UBL Files
     runs-on: ubuntu-latest
@@ -180,17 +230,30 @@ jobs:
       env:
         AQUILA_VER: ${{ matrix.chip }}
         GRID: ${{ matrix.grid }}
-    - name: Get release
-      id: get_release
-      uses: bruceadams/get-release@v1.3.2
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
-    - name: Upload Release Asset
-      uses: actions/upload-release-asset@v1
+        
+      - name: Upload to Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: firmware/Debug/firmware.bin
+        name: Upload Release Asset
+        tag_name: ${{ github.run_id }}
+        body: |
+          
+          
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.get_release.outputs.upload_url }}
-        asset_path: firmware/Debug/firmware.bin
-        asset_name: ${{ steps.build_configs.outputs.filename }}
-        asset_content_type: application/x-binary
+
+    #- name: Get release
+    #  id: get_release
+    #  uses: bruceadams/get-release@v1.3.2
+    #  env:
+    #    GITHUB_TOKEN: ${{ github.token }}
+    #- name: Upload Release Asset
+    #  uses: actions/upload-release-asset@v1
+    #  env:
+    #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #  with:
+    #    upload_url: ${{ steps.get_release.outputs.upload_url }}
+    #    asset_path: firmware/Debug/firmware.bin
+    #    asset_name: ${{ steps.build_configs.outputs.filename }}
+    #    asset_content_type: application/x-binary
