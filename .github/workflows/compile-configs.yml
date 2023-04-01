@@ -19,7 +19,7 @@ jobs:
 
     - name: Sync toolchain
       uses: carlosperate/arm-none-eabi-gcc-action@v1
-      
+
 #      id: build_configs
     - name: Compile firmware
       run: |
@@ -28,6 +28,7 @@ jobs:
         cp firmware/Configuration\ Files/Aquila\ Templates/Default-NoProbe/Configuration_adv.h firmware/Sources/Marlin/Configuration_adv.h
         cd firmware/Debug
         make all
+        mv firmware/Debug/firmware.bin firmware/Debug/$GITHUB_OUTPUT
       env:
         AQUILA_VER: ${{ matrix.chip }}
     - name: Upload to Release
