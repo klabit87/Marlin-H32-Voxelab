@@ -40,10 +40,9 @@ jobs:
     - name: Upload to Release
       uses: softprops/action-gh-release@v1
       with:
-        files: firmware/Debug/Default-NoProbe-${AQUILA_VER}.bin
-        name: Upload Release Asset
+        files: firmware/Debug/Default-NoProbe-H32.bin
+        name: Upload Release Asset-${{ github.run_id }}
         tag_name: ${{ github.run_id }}
       env:
-        AQUILA_VER: ${{ matrix.chip }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
