@@ -14,10 +14,11 @@ jobs:
       matrix:
         chip: [H32]
     steps:
+    - name: Checkout repo & grab toolchain
+      uses: actions/checkout@v3
+      uses: carlosperate/arm-none-eabi-gcc-action@v1
+#      id: build_configs
     - name: Compile firmware
-    - uses: actions/checkout@v3
-    - uses: carlosperate/arm-none-eabi-gcc-action@v1
-      id: build_configs
       run: |
         echo "filename=Default-NoProbe-${AQUILA_VER}.bin" >> $GITHUB_OUTPUT
         cp firmware/Configuration\ Files/Aquila\ Templates/Default-NoProbe/Configuration.h firmware/Sources/Marlin/Configuration.h
@@ -27,7 +28,7 @@ jobs:
       env:
         AQUILA_VER: ${{ matrix.chip }}
     - name: Upload to Release
-    - uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v1
       with:
         files: firmware/Debug/firmware.bin
         name: Upload Release Asset
