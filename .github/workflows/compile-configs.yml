@@ -14,7 +14,7 @@ jobs:
       matrix:
         chip: [H32]
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: carlosperate/arm-none-eabi-gcc-action@v1
     - name: Compile firmware
       id: build_configs
@@ -28,7 +28,7 @@ jobs:
         AQUILA_VER: ${{ matrix.chip }}
     - name: Get release
       id: get_release
-      uses: bruceadams/get-release@v1.2.2
+      uses: bruceadams/get-release@v1.3.2
       env:
         GITHUB_TOKEN: ${{ github.token }}
     - name: Upload Release Asset
@@ -49,7 +49,7 @@ jobs:
         grid: [3,4,5,9]
         highspeed: [true,false]
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: carlosperate/arm-none-eabi-gcc-action@v1
     - name: Compile firmware
       id: build_configs
@@ -69,7 +69,7 @@ jobs:
         HS: ${{ matrix.highspeed }}
     - name: Get release
       id: get_release
-      uses: bruceadams/get-release@v1.2.2
+      uses: bruceadams/get-release@v1.3.2
       env:
         GITHUB_TOKEN: ${{ github.token }}
     - name: Upload Release Asset
@@ -89,7 +89,7 @@ jobs:
         chip: [H32]
         grid: [3,4,5]
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: carlosperate/arm-none-eabi-gcc-action@v1
     - name: Compile firmware
       id: build_configs
@@ -105,7 +105,7 @@ jobs:
         GRID: ${{ matrix.grid }}
     - name: Get release
       id: get_release
-      uses: bruceadams/get-release@v1.2.2
+      uses: bruceadams/get-release@v1.3.2
       env:
         GITHUB_TOKEN: ${{ github.token }}
     - name: Upload Release Asset
@@ -126,7 +126,7 @@ jobs:
   #       grid: [10,15]
   #       highspeed: [true,false]
   #   steps:
-  #   - uses: actions/checkout@v2
+  #   - uses: actions/checkout@v3
   #   - uses: carlosperate/arm-none-eabi-gcc-action@v1
   #   - name: Compile firmware
   #     id: build_configs
@@ -146,7 +146,7 @@ jobs:
   #       HS: ${{ matrix.highspeed }}
   #   - name: Get release
   #     id: get_release
-  #     uses: bruceadams/get-release@v1.2.2
+  #     uses: bruceadams/get-release@v1.3.2
   #     env:
   #       GITHUB_TOKEN: ${{ github.token }}
   #   - name: Upload Release Asset
@@ -166,7 +166,7 @@ jobs:
         chip: [H32]
         grid: [3,5]
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: carlosperate/arm-none-eabi-gcc-action@v1
     - name: Compile firmware
       id: build_configs
@@ -182,7 +182,7 @@ jobs:
         GRID: ${{ matrix.grid }}
     - name: Get release
       id: get_release
-      uses: bruceadams/get-release@v1.2.2
+      uses: bruceadams/get-release@v1.3.2
       env:
         GITHUB_TOKEN: ${{ github.token }}
     - name: Upload Release Asset
