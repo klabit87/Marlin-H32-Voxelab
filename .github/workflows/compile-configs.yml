@@ -34,7 +34,9 @@ jobs:
       env:
         AQUILA_VER: ${{ matrix.chip }}
       run: |
+        ls firmware/Debug
         mv firmware/Debug/firmware.bin firmware/Debug/Default-NoProbe-${AQUILA_VER}.bin
+        ls firmware/Debug
     - name: Upload to Release
       uses: softprops/action-gh-release@v1
       with:
