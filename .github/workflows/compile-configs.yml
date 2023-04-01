@@ -19,7 +19,7 @@ jobs:
     - name: Compile firmware
       id: build_configs
       run: |
-        echo "::set-output name=filename::Default-NoProbe-${AQUILA_VER}.bin"
+        echo "filename=Default-NoProbe-${AQUILA_VER}.bin" >> $GITHUB_OUTPUT
         cp firmware/Configuration\ Files/Aquila\ Templates/Default-NoProbe/Configuration.h firmware/Sources/Marlin/Configuration.h
         cp firmware/Configuration\ Files/Aquila\ Templates/Default-NoProbe/Configuration_adv.h firmware/Sources/Marlin/Configuration_adv.h
         cd firmware/Debug
@@ -55,7 +55,7 @@ jobs:
       id: build_configs
       run: |
         if ($HS); then HSTMP=-HS; else HSTMP=; fi;
-        echo "echo "{name}={value}" >> $GITHUB_OUTPUT name=filename::BLTouch-${GRID}x${GRID}${HSTMP}-${AQUILA_VER}.bin"
+        echo "filename=BLTouch-${GRID}x${GRID}${HSTMP}-${AQUILA_VER}.bin" >> $GITHUB_OUTPUT
         cp firmware/Configuration\ Files/Aquila\ Templates/BLTouch-3x3/Configuration.h firmware/Sources/Marlin/Configuration.h
         cp firmware/Configuration\ Files/Aquila\ Templates/BLTouch-3x3/Configuration_adv.h firmware/Sources/Marlin/Configuration_adv.h
         sed -i "s/#define GRID_MAX_POINTS_X.*/#define GRID_MAX_POINTS_X $GRID/g" firmware/Sources/Marlin/Configuration.h
@@ -94,7 +94,7 @@ jobs:
     - name: Compile firmware
       id: build_configs
       run: |
-        echo "echo "{name}={value}" >> $GITHUB_OUTPUT name=filename::ManualMesh-${GRID}x${GRID}-${AQUILA_VER}.bin"
+        echo "filename=ManualMesh-${GRID}x${GRID}-${AQUILA_VER}.bin" >> $GITHUB_OUTPUT
         cp firmware/Configuration\ Files/Aquila\ Templates/ManualMesh-3x3/Configuration.h firmware/Sources/Marlin/Configuration.h
         cp firmware/Configuration\ Files/Aquila\ Templates/ManualMesh-3x3/Configuration_adv.h firmware/Sources/Marlin/Configuration_adv.h
         sed -i "s/#define GRID_MAX_POINTS_X.*/#define GRID_MAX_POINTS_X $GRID/g" firmware/Sources/Marlin/Configuration.h
@@ -132,7 +132,7 @@ jobs:
   #     id: build_configs
   #     run: |
   #       if ($HS); then HSTMP=-HS; else HSTMP=; fi;
-  #       echo "echo "{name}={value}" >> $GITHUB_OUTPUT name=filename::UBL-BLTouch-${GRID}x${GRID}${HSTMP}-${AQUILA_VER}.bin"
+  #       echo "filename=UBL-BLTouch-${GRID}x${GRID}${HSTMP}-${AQUILA_VER}.bin" >> $GITHUB_OUTPUT
   #       cp firmware/Configuration\ Files/Aquila\ Templates/UBL-BLTouch-10x10/Configuration.h firmware/Sources/Marlin/Configuration.h
   #       cp firmware/Configuration\ Files/Aquila\ Templates/UBL-BLTouch-10x10/Configuration_adv.h firmware/Sources/Marlin/Configuration_adv.h
   #       sed -i "s/#define GRID_MAX_POINTS_X.*/#define GRID_MAX_POINTS_X $GRID/g" firmware/Sources/Marlin/Configuration.h
@@ -171,7 +171,7 @@ jobs:
     - name: Compile firmware
       id: build_configs
       run: |
-        echo "echo "{name}={value}" >> $GITHUB_OUTPUT name=filename::UBL-NoProbe-${GRID}x${GRID}-${AQUILA_VER}.bin"
+        echo "filename=UBL-NoProbe-${GRID}x${GRID}-${AQUILA_VER}.bin" >> $GITHUB_OUTPUT
         cp firmware/Configuration\ Files/Aquila\ Templates/UBL-NoProbe-3x3/Configuration.h firmware/Sources/Marlin/Configuration.h
         cp firmware/Configuration\ Files/Aquila\ Templates/UBL-NoProbe-3x3/Configuration_adv.h firmware/Sources/Marlin/Configuration_adv.h
         sed -i "s/#define GRID_MAX_POINTS_X.*/#define GRID_MAX_POINTS_X $GRID/g" firmware/Sources/Marlin/Configuration.h
