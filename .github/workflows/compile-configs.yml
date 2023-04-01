@@ -44,5 +44,6 @@ jobs:
         name: Upload Release Asset
         tag_name: ${{ github.run_id }}
       env:
+        AQUILA_VER: ${{ matrix.chip }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
